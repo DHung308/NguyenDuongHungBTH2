@@ -10230,11 +10230,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Hw\\PTPMQL\\NguyenDuongHungBTH2\\NguyenDuongHungBTH2.csproj",
+      "projectUniqueName": "E:\\Hw\\Git rp\\NguyenDuongHungBTH2\\NguyenDuongHungBTH2\\NguyenDuongHungBTH2.csproj",
       "projectName": "NguyenDuongHungBTH2",
-      "projectPath": "E:\\Hw\\PTPMQL\\NguyenDuongHungBTH2\\NguyenDuongHungBTH2.csproj",
+      "projectPath": "E:\\Hw\\Git rp\\NguyenDuongHungBTH2\\NguyenDuongHungBTH2\\NguyenDuongHungBTH2.csproj",
       "packagesPath": "C:\\Users\\nguye\\.nuget\\packages\\",
-      "outputPath": "E:\\Hw\\PTPMQL\\NguyenDuongHungBTH2\\obj\\",
+      "outputPath": "E:\\Hw\\Git rp\\NguyenDuongHungBTH2\\NguyenDuongHungBTH2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nguye\\AppData\\Roaming\\NuGet\\NuGet.Config"

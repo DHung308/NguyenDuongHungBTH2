@@ -1,8 +1,9 @@
-namespace NguyenDuongHungBTH2.Models
-{
+using System.Data;
+namespace NguyenDuongHungBTH2.Models{
     public class Student
     {
-        public string StudentID { get; set; }
-        public string StudentName { get; set; }
+        public string? ID {get; set;}
+        public string? StudentID {get; set;}
+        public string? Studentname {get; set;}
     }
 }

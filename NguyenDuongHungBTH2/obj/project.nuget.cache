@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "o+O9QhNGf2SJbMSj9yV8AS8yw3a/Pph4x8VbpsZQG52jfUA3pfePZCXnPoXzjnbrtKjyKvt9J715+Tm/hHn6EA==",
+  "dgSpecHash": "FzRKxj+XaMgO8fWgtxJ5eADiWqoRfdGVPpcE3PaHZA9XtvE6XUp2K0/LgBa5RvGN8iwRf5z5QSxP8Kaah5eP7Q==",
   "success": true,
-  "projectFilePath": "E:\\Hw\\PTPMQL\\NguyenDuongHungBTH2\\NguyenDuongHungBTH2.csproj",
+  "projectFilePath": "E:\\Hw\\Git rp\\NguyenDuongHungBTH2\\NguyenDuongHungBTH2\\NguyenDuongHungBTH2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nguye\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\nguye\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
