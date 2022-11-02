@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using NguyenDuongHungBTH2.Models;
 
+namespace NguyenDuongHungBTH2.Data;
     public class ApplicationDbcontext : DbContext
     {
         public ApplicationDbcontext (DbContextOptions<ApplicationDbcontext> options)

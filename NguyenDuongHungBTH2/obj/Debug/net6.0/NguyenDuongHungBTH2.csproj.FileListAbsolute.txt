@@ -282,3 +282,7 @@ E:\Hw\Git rp\NguyenDuongHungBTH2\NguyenDuongHungBTH2\obj\Debug\net6.0\refint\Ngu
 E:\Hw\Git rp\NguyenDuongHungBTH2\NguyenDuongHungBTH2\obj\Debug\net6.0\NguyenDuongHungBTH2.pdb
 E:\Hw\Git rp\NguyenDuongHungBTH2\NguyenDuongHungBTH2\obj\Debug\net6.0\NguyenDuongHungBTH2.genruntimeconfig.cache
 E:\Hw\Git rp\NguyenDuongHungBTH2\NguyenDuongHungBTH2\obj\Debug\net6.0\ref\NguyenDuongHungBTH2.dll
+E:\Hw\Git rp\NguyenDuongHungBTH2\NguyenDuongHungBTH2\bin\Debug\net6.0\EPPlus.dll
+E:\Hw\Git rp\NguyenDuongHungBTH2\NguyenDuongHungBTH2\bin\Debug\net6.0\EPPlus.Interfaces.dll
+E:\Hw\Git rp\NguyenDuongHungBTH2\NguyenDuongHungBTH2\bin\Debug\net6.0\EPPlus.System.Drawing.dll
+E:\Hw\Git rp\NguyenDuongHungBTH2\NguyenDuongHungBTH2\bin\Debug\net6.0\Microsoft.IO.RecyclableMemoryStream.dll

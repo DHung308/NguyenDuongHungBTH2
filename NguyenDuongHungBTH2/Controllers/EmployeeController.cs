@@ -1,162 +1,55 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using NguyenDuongHungBTH2.Models;
+using NguyenDuongHungBTH2.Data;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace NguyenDuongHungBTH2.Controllers
 {
     public class EmployeeController : Controller
     {
         private readonly ApplicationDbcontext _context;
-
         public EmployeeController(ApplicationDbcontext context)
         {
             _context = context;
         }
-
-        // GET: Employee
+        //GET: Employee
         public async Task<IActionResult> Index()
         {
-              return _context.Employee != null ? 
-                          View(await _context.Employee.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbcontext.Employee'  is null.");
+            return View(await _context.Employee.ToListAsync());
         }
-
-        // GET: Employee/Details/5
-        public async Task<IActionResult> Details(int? id)
+        private bool EmployeeExists(string id)
         {
-            if (id == null || _context.Employee == null)
-            {
-                return NotFound();
-            }
-
-            var employee = await _context.Employee
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (employee == null)
-            {
-                return NotFound();
-            }
-
-            return View(employee);
+            return _context.Employee.Any(e => e.EmpID == id);
         }
-
-        // GET: Employee/Create
-        public IActionResult Create()
+        public async Task<IActionResult>Upload()
         {
             return View();
         }
-
-        // POST: Employee/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Age")] Employee employee)
+        public async Task<IActionResult>Upload(IFormFile file)
         {
-            if (ModelState.IsValid)
+            if (file!=null)
             {
-                _context.Add(employee);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(employee);
-        }
-
-        // GET: Employee/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Employee == null)
-            {
-                return NotFound();
-            }
-
-            var employee = await _context.Employee.FindAsync(id);
-            if (employee == null)
-            {
-                return NotFound();
-            }
-            return View(employee);
-        }
-
-        // POST: Employee/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Age")] Employee employee)
-        {
-            if (id != employee.ID)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
+                string fileExtension = Path.GetExtension(file.FileName);
+                if (fileExtension != ".xls" && fileExtension != ".xls")
                 {
-                    _context.Update(employee);
-                    await _context.SaveChangesAsync();
+                    ModelState.AddModelError("", "Please choose excel file to upload!");
                 }
-                catch (DbUpdateConcurrencyException)
+                else
                 {
-                    if (!EmployeeExists(employee.ID))
+                    //rename file when upload to sever
+                    var fileName = DateTime.Now.ToShortTimeString() + fileExtension;
+                    var filePath =  Path.Combine(Directory.GetCurrentDirectory() + "/Uploads/Excels", fileName);
+                    var fileLocation = new FileInfo(filePath).ToString();
+                    using (var stream = new FileStream(filePath, FileMode.Create))
                     {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
+                        //Save file to sever
+                        await file.CopyToAsync(stream);
                     }
                 }
-                return RedirectToAction(nameof(Index));
             }
-            return View(employee);
-        }
-
-        // GET: Employee/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Employee == null)
-            {
-                return NotFound();
-            }
-
-            var employee = await _context.Employee
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (employee == null)
-            {
-                return NotFound();
-            }
-
-            return View(employee);
-        }
-
-        // POST: Employee/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Employee == null)
-            {
-                return Problem("Entity set 'ApplicationDbcontext.Employee'  is null.");
-            }
-            var employee = await _context.Employee.FindAsync(id);
-            if (employee != null)
-            {
-                _context.Employee.Remove(employee);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool EmployeeExists(int id)
-        {
-          return (_context.Employee?.Any(e => e.ID == id)).GetValueOrDefault();
+            return View();
         }
     }
 }

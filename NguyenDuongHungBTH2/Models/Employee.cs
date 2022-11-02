@@ -1,9 +1,10 @@
 using System.Data;
+using System.ComponentModel.DataAnnotations;
 namespace NguyenDuongHungBTH2.Models{
     public class Employee
     {
-        public int ID {get; set;}
-        public string? Name {get; set;}
-        public int Age {get; set;}
+        public String EmpID {get; set;}
+        public string EmpName {get; set;}
+        public String Address {get; set;}
     }
 }
